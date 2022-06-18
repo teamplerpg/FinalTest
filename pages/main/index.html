@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>제목</title>
     <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
     <div id="header_background">
         <header>
-            <a href="mainpage.html"><img src="images/logo.png" id="header_logo"></a>
+            <a href="/pages/main"><img src="images/logo.png" id="header_logo"></a>
             <nav id="nav_global" class="header_nav">
                 <ul id="nav_global_left">
                     <li class="nav_global_item"><a href="#">VIP LOUNGE</a></li>
@@ -23,7 +25,7 @@
             <nav id="nav_local" class="header_nav">
                 <ul id="nav_local_left">
                     <li class="nav_local_item"><a href="#" class="nav_local_text">영화</a></li>
-                    <li class="nav_local_item"><a href="subpage1.html" class="nav_local_text">예매</a></li>
+                    <li class="nav_local_item"><a href="/pages/sub" class="nav_local_text">예매</a></li>
                     <li class="nav_local_item"><a href="#" class="nav_local_text">극장</a></li>
                 </ul>
                 <ul id="nav_local_right">
@@ -38,8 +40,8 @@
         <div id="main1_background">
             <section id="main1">
                 <input type="radio" name="slide" id="slide01" checked>
-	            <input type="radio" name="slide" id="slide02">
-	            <input type="radio" name="slide" id="slide03">
+                <input type="radio" name="slide" id="slide02">
+                <input type="radio" name="slide" id="slide03">
                 <div id="main_slide">
                     <ul id="main_slide_list">
                         <li class="slideitem">
@@ -89,24 +91,34 @@
         </div>
         <div id="main2_background">
             <section id="main2">
-                    <div id="main_boxoffice"><h1>박스오피스</h1><a href="#">더보기&gt;</a></div>
-                    <hr>
+                <div id="main_boxoffice">
+                    <h1>박스오피스</h1><a href="#">더보기&gt;</a>
+                </div>
+                <hr>
                 <article id="main_movie_list">
                     <article class="main_movie">
                         <img src="images/witch.jpg" class="main_movie_picture">
-                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                        <a href="#">
+                            <div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div>
+                        </a>
                     </article>
                     <article class="main_movie">
                         <img src="images/doctor.jpg" class="main_movie_picture">
-                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                        <a href="#">
+                            <div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div>
+                        </a>
                     </article>
                     <article class="main_movie">
                         <img src="images/city.jpg" class="main_movie_picture">
-                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                        <a href="#">
+                            <div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div>
+                        </a>
                     </article>
                     <article class="main_movie">
                         <img src="images/broker.jpg" class="main_movie_picture">
-                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                        <a href="#">
+                            <div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div>
+                        </a>
                     </article>
                 </article>
                 <article id="main_quick">
@@ -127,7 +139,9 @@
         </div>
         <div id="main3_background">
             <section id="main3">
-                <div id="main_event"><h1>이벤트</h1><a href="#">더보기&gt;</a></div>
+                <div id="main_event">
+                    <h1>이벤트</h1><a href="#">더보기&gt;</a>
+                </div>
                 <hr>
                 <article id="main_eventall">
                     <div id="main_event1">
@@ -150,7 +164,7 @@
                             <a href="#"><img src="images/event1.jpg" width="300" height="450"></a>
                         </div>
                     </div>
-            </article>
+                </article>
             </section>
         </div>
     </main>
@@ -170,9 +184,12 @@
                         <li class="footer_item"><a href="#">윤리경영</a></li>
                     </ul>
                     <ul id="footer_link_ul">
-                        <li class="footer_link_item"><a href="#"><img src="images/insta.png" class="footer_link"></a></li>
-                        <li class="footer_link_item"><a href="#"><img src="images/youtube.png"class="footer_link"></a></li>
-                        <li class="footer_link_item"><a href="#"><img src="images/facebook.png"class="footer_link"></a></li>
+                        <li class="footer_link_item"><a href="#"><img src="images/insta.png" class="footer_link"></a>
+                        </li>
+                        <li class="footer_link_item"><a href="#"><img src="images/youtube.png" class="footer_link"></a>
+                        </li>
+                        <li class="footer_link_item"><a href="#"><img src="images/facebook.png" class="footer_link"></a>
+                        </li>
                     </ul>
                 </div>
                 <p id="footer_adress">
@@ -185,4 +202,5 @@
         </footer>
     </div>
 </body>
+
 </html>
