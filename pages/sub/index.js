@@ -95,7 +95,7 @@ for (const movie of movies) {
     nameArea.innerHTML += `
     <label class="movie" for="${movie.id}">
         <div class="grade_15up">${movie.ages}</div>
-        <p>${movie.name}</p>
+        <p>${movie.title}</p>
         <img src="images/check.png" class="check" width="35px" height="35px">
     </label>
     `;
