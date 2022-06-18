@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>제목</title>
+    <style>
+        /*초기화*/
+        * {margin: 0px; padding: 0px;}
+        li {list-style: none;}
+        a {text-decoration: none; color: black;}
+        img {border: 0px;}
+        body {
+            font-family: sans-serif;
+            margin: 0px auto;
+        }
+        /*헤더*/
+        #header_background {
+            margin: 0px;
+            height: 99px;
+            background-color: white;
+            border-bottom: 5px solid #bbddff;
+        }
+        header {
+            width: 1000px;
+            height: 50px;
+            position: relative;
+            margin: 0px auto;
+        }
+        #header_logo {
+            width: 130px;
+            height: 100px;
+            position: absolute;
+            left: 435px;
+            top: 0px;
+        }
+        #nav_global {
+            height: 50px;
+        }
+        #nav_global a {
+            color: #afafaf;
+        }
+        #nav_global_left {
+            float: left;
+        }
+        #nav_global_right {
+            float: right;
+        }
+        .nav_global_item {
+            text-align: center;
+            float: left;
+            width: 100px;
+            height: 50px;
+        }
+        #nav_local {
+            height: 50px;
+        }
+        #nav_local_left {
+            float: left;
+        }
+        #nav_local_right {
+            float: right;
+        }
+        .nav_local_item {
+            float: left;
+            width: 145px;
+            height: 50px;
+        }
+        .nav_local_item:hover {
+            background-color: #bbddff;
+        }
+        .nav_local_item {
+            text-align: center;
+            line-height: 50px;
+        }
+
+        /*메인*/
+        main {
+            background-color: white;
+            height: 650px;
+        }
+        #main_section {
+            width: 1000px;
+            height: 650px;
+            margin: 0px auto;
+        }
+        #reserve_text {
+            margin: 40px 0px 15px 0px;
+            font-size: 14pt;
+        }
+        #reserve {
+            width: 1000px;
+            height: 500px;
+            margin: 15px 0px 0px 0px;
+            background-color: #efefef;
+        }
+        #choose_day {
+            width: 1000px;
+            height: 55px;
+            background-color: #dfdfdf;
+            overflow: hidden;
+        }
+        #choose_day > input {
+            display: none;
+        }
+        .day {
+            width: 125px;
+            height: 50px;
+            border-bottom: 5px solid #9f9f9f;
+            background-color: #dfdfdf;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+        }
+        #saterday {
+            color: #0000df;
+        }
+        #sunday {
+            color: #ff3f3f;
+        }
+        #choose_day > input[id="day1"]:checked ~ .day:nth-of-type(1){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_day > input[id="day2"]:checked ~ .day:nth-of-type(2){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_day > input[id="day3"]:checked ~ .day:nth-of-type(3){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_day > input[id="day4"]:checked ~ .day:nth-of-type(4){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_day > input[id="day5"]:checked ~ .day:nth-of-type(5){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_day > input[id="day6"]:checked ~ .day:nth-of-type(6){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_day > input[id="day7"]:checked ~ .day:nth-of-type(7){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_day > input[id="day8"]:checked ~ .day:nth-of-type(8){
+            background-color: #efefef;
+            border-bottom: 5px solid black;
+        }
+        #choose_infor > article{
+            float: left;
+        }
+        #choose_movie {
+            width: 185px;
+            height: 445px;
+            border-right: 5px solid #9f9f9f;
+            background-color: #dfdfdf;
+        }
+        #choose_movie input {
+            display: none;
+        }
+        .movie {
+            display: block;
+            width: 185px;
+            height: 50px;
+            background-color: #dfdfdf;
+            text-overflow: ellipsis;
+        }
+        #choose_movie > input[id="movie1"]:checked ~ .movie:nth-of-type(1){
+            background-color: #efefef;
+            width: 183px;
+            height:48px;
+            border: 1px solid black;
+        }
+        #choose_movie > input[id="movie2"]:checked ~ .movie:nth-of-type(2) {
+            background-color: #efefef;
+            width: 183px;
+            height:48px;
+            border: 1px solid black;
+        }
+        #choose_movie > input[id="movie3"]:checked ~ .movie:nth-of-type(3) {
+            background-color: #efefef;
+            width: 183px;
+            height:48px;
+            border: 1px solid black;
+        }
+        #choose_movie > input[id="movie4"]:checked ~ .movie:nth-of-type(4) {
+            background-color: #efefef;
+            width: 183px;
+            height:48px;
+            border: 1px solid black;
+        }
+        #choose_movie > input[id="movie5"]:checked ~ .movie:nth-of-type(5) {
+            background-color: #efefef;
+            width: 183px;
+            height:48px;
+            border: 1px solid black;
+        }
+        #choose_movie > input[id="movie6"]:checked ~ .movie:nth-of-type(6) {
+            background-color: #efefef;
+            width: 183px;
+            height:48px;
+            border: 1px solid black;
+        }
+        .check {
+            padding: 5px 0px 0px 0px;
+            display: none;
+        }
+        #choose_movie > input[id="movie1"]:checked ~ .movie:nth-of-type(1) > .check {
+            display: block;
+        }
+        #choose_movie > input[id="movie2"]:checked ~ .movie:nth-of-type(2) > .check {
+            display: block;
+        }
+        #choose_movie > input[id="movie3"]:checked ~ .movie:nth-of-type(3) > .check {
+            display: block;
+        }
+        #choose_movie > input[id="movie4"]:checked ~ .movie:nth-of-type(4) > .check {
+            display: block;
+        }
+        #choose_movie > input[id="movie5"]:checked ~ .movie:nth-of-type(5) > .check {
+            display: block;
+        }
+        #choose_movie > input[id="movie6"]:checked ~ .movie:nth-of-type(6) > .check {
+            display: block;
+        }
+        .grade_all {
+            width: 30px;
+            height:30px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 100%;
+            color: white;
+            font-weight: bolder;
+            background-color: green;
+            margin: 9px 5px 9px 5px;
+        }
+        .grade_12up {
+            width: 30px;
+            height:30px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 100%;
+            color: white;
+            font-weight: bolder;
+            background-color: #3fbfdf;
+            margin: 9px 5px 9px 5px;
+        }
+        .grade_15up {
+            width: 30px;
+            height:30px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 100%;
+            color: white;
+            font-weight: bolder;
+            background-color: #ffbf3f;
+            margin: 9px 5px 9px 5px;
+        }
+        .grade_adult {
+            width: 30px;
+            height:30px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 100%;
+            color: white;
+            font-weight: bolder;
+            background-color: red;
+            margin: 9px 5px 9px 5px;
+        }
+        .movie p {
+            float: left;
+            width: 108px;
+            height: 48px;
+            font-size: 10pt;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 50px;
+            overflow: hidden;
+        }
+        #choose_time {
+            width: 185px;
+            height: 445px;
+            background-color: lightskyblue;
+        }
+        .timelist input {
+            display: none;
+        }
+        #choose_movie > input[id="movie1"]:checked ~ .timelist:nth-of-type(1) {
+            width: 1000px;
+            height: 1000px;
+            background-color: green;
+        }
+        .watch {
+            display: block;
+            width: 175px;
+            height: 40px;
+            border: 5px solid blue;
+            text-align: center;
+            line-height: 50px;
+            background-color: red;
+        }
+        #choose_seat {
+            width: 620px;
+            height: 445px;
+            border-left: 5px solid #9f9f9f;
+            background-color: #efefef;
+        }
+        /*푸터*/
+        footer {
+            font-size: 10px;
+            width: 1000px;
+            height: 200px;
+            margin: 0px auto;
+        }
+        #footer_background {
+            background-color: #efefef;
+        }
+        #footer_logo_location1 {
+            float:left;
+        }
+        #footer_logo {
+            width: 190px;
+            height: 190px;
+        }
+        #footer_nav {
+            margin: 25px;
+            float: left;
+        }
+        .footer_item {
+            display: inline;
+        }
+        #footer_link_ul {
+            float: right;
+            margin: 10px 25px 0px 0px;
+        }
+        .footer_link_item {
+            display: inline;
+        }
+        .footer_link {
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+        #footer_navlink {
+            overflow: hidden;
+        }
+        #footer_adress {
+            float: left;
+            margin: 0px 0px 0px 25px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="header_background">
+        <header>
+            <a href="mainpage.HTM"><img src="directory/mainpage/logo.png" id="header_logo"></a>
+            <nav id="nav_global" class="header_nav">
+                <ul id="nav_global_left">
+                    <li class="nav_global_item"><a href="#">VIP LOUNGE</a></li>
+                    <li class="nav_global_item"><a href="#">멤버십</a></li>
+                    <li class="nav_global_item"><a href="#">고객센터</a></li>
+                </ul>
+                <ul id="nav_global_right">
+                    <li class="nav_global_item"><a href="#">로그인</a></li>
+                    <li class="nav_global_item"><a href="#">회원가입</a></li>
+                    <li class="nav_global_item"><a href="#">빠른예매</a></li>
+                </ul>
+            </nav>
+            <nav id="nav_local" class="header_nav">
+                <ul id="nav_local_left">
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">영화</a></li>
+                    <li class="nav_local_item"><a href="subpage1.HTM" class="nav_local_text">예매</a></li>
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">극장</a></li>
+                </ul>
+                <ul id="nav_local_right">
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">이벤트</a></li>
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">스토어</a></li>
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">혜택</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <main>
+        <section id="main_section">
+            <p id="reserve_text">빠른예매</p>
+            <hr>
+            <article id="reserve">
+                <article id="choose_day">
+                    <input type="radio" name="day" id="day1" checked>
+                    <input type="radio" name="day" id="day2">
+                    <input type="radio" name="day" id="day3">
+                    <input type="radio" name="day" id="day4">
+                    <input type="radio" name="day" id="day5">
+                    <input type="radio" name="day" id="day6">
+                    <input type="radio" name="day" id="day7">
+                    <input type="radio" name="day" id="day8">
+                    <label class="day" for="day1">
+                        6월20일(월)
+                    </label>
+                    <label class="day" for="day2">
+                        6월21일(화)
+                    </label>
+                    <label class="day" for="day3">
+                        6월22일(수)
+                    </label>
+                    <label class="day" for="day4">
+                        6월23일(목)
+                    </label>
+                    <label class="day" for="day5">
+                        6월24일(금)
+                    </label>
+                    <label class="day" for="day6">
+                        <span id="saterday">6월25일(토)</span>
+                    </label>
+                    <label class="day" for="day7">
+                        <span id="sunday">6월26일(일)</span>
+                    </label>
+                    <label class="day" for="day8">
+                        6월27일(월)
+                    </label>
+                </article>
+                <article id="choose_infor">
+                    <article id="choose_movie">
+                        <input type="radio" name="movie" id="movie1">
+                        <input type="radio" name="movie" id="movie2">
+                        <input type="radio" name="movie" id="movie3">
+                        <input type="radio" name="movie" id="movie4">
+                        <input type="radio" name="movie" id="movie5">
+                        <input type="radio" name="movie" id="movie6">
+                        <label class="movie" for="movie1">
+                            <div class="grade_15up">15</div>
+                            <p>마녀(魔女) Part2. The Other One</p>
+                            <img src="directory/subpage/check.png" class="check" width="35px" height="35px">
+                        </label>
+                        <label class="movie" for="movie2">
+                            <div class="grade_all">A</div>
+                            <p>짱구는 못말려 극장판: 핸더랜드의 대모험</p>
+                            <img src="directory/subpage/check.png" class="check" width="35px" height="35px">
+                        </label>
+                        <label class="movie" for="movie3">
+                            <div class="grade_12up">12</div>
+                            <p>브로커</p>
+                            <img src="directory/subpage/check.png" class="check" width="35px" height="35px">
+                        </label>
+                        <label class="movie" for="movie4">
+                            <div class="grade_adult">청</div>
+                            <p>실종</p>
+                            <img src="directory/subpage/check.png" class="check" width="35px" height="35px">
+                        </label>
+                        <label class="movie" for="movie5">
+                            <div class="grade_15up">15</div>
+                            <p>극장판 귀멸의 칼날: 무한열차편</p>
+                            <img src="directory/subpage/check.png" class="check" width="35px" height="35px">
+                        </label>
+                        <label class="movie" for="movie6">
+                            <div class="grade_12up">12</div>
+                            <p>닥터 스트레인지: 대혼돈의 멀티버스</p>
+                            <img src="directory/subpage/check.png" class="check" width="35px" height="35px">
+                        </label>
+                    </article>
+                    <article id="choose_time">
+                        <div class="timelist">
+                            <input type="radio" name="time" id="time1-1">
+                            <input type="radio" name="time" id="time1-2">
+                            <input type="radio" name="time" id="time1-3">
+                            <input type="radio" name="time" id="time1-4">
+                            <input type="radio" name="time" id="time1-5">
+                            <input type="radio" name="time" id="time1-6">
+                            <label class="watch" for="time1-1">
+                                09:30
+                            </label>
+                            <label class="watch" for="time1-2">
+                                13:00
+                            </label>
+                            <label class="watch" for="time1-3">
+                                15:30
+                            </label>
+                            <label class="watch" for="time1-4">
+                                18:00
+                            </label>
+                            <label class="watch" for="time1-5">
+                                20:30
+                            </label>
+                            <label class="watch" for="time1-6">
+                                23:00
+                            </label>
+                        </div>
+                    </article>
+                    <article id="choose_seat"></article>
+                </article>
+            </article>
+        </section>
+    </main>
+    <div id="footer_background">
+        <footer>
+            <div id="footer_logo_location1">
+                <img src="directory/mainpage/footerlogo.png" id="footer_logo">
+            </div>
+            <div id="footer_logo_location2">
+                <div id="footer_navlink">
+                    <ul id="footer_nav">
+                        <li class="footer_item"><a href="#">회사소개</a></li>
+                        <li class="footer_item"><a href="#">인재채용</a></li>
+                        <li class="footer_item"><a href="#">사회공헌</a></li>
+                        <li class="footer_item"><a href="#">제휴/광고</a></li>
+                        <li class="footer_item"><a href="#">이용약관</a></li>
+                        <li class="footer_item"><a href="#">윤리경영</a></li>
+                    </ul>
+                    <ul id="footer_link_ul">
+                        <li class="footer_link_item"><a href="#"><img src="directory/mainpage/insta.png" class="footer_link"></a></li>
+                        <li class="footer_link_item"><a href="#"><img src="directory/mainpage/youtube.png"class="footer_link"></a></li>
+                        <li class="footer_link_item"><a href="#"><img src="directory/mainpage/facebook.png"class="footer_link"></a></li>
+                    </ul>
+                </div>
+                <p id="footer_adress">
+                    주소 : 62399 광주광역시 광산구 호남대길 120 호남대학교
+                    <br>대표자명 하늘 · 개인정보보호책임자 임창경 사업자등록번호 000-00-00000
+                    <br>통신판매업신고번호 제 0000-광주선운-0000 호
+                    <br>COPYRIGHT © HonamUniversity, Inc. All rights reserved
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

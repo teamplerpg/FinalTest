@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>제목</title>
+    <style>
+        /*초기화*/
+        * {margin: 0px; padding: 0px;}
+        li {list-style: none;}
+        a {text-decoration: none; color: black;}
+        img {border: 0px;}
+        body {
+            font-family: sans-serif;
+            margin: 0px auto;
+        }
+        /*헤더*/
+        #header_background {
+            margin: 0px;
+            height: 99px;
+            background-color: white;
+            border-bottom: 5px solid #bbddff;
+        }
+        header {
+            width: 1000px;
+            height: 50px;
+            position: relative;
+            margin: 0px auto;
+        }
+        #header_logo {
+            width: 130px;
+            height: 100px;
+            position: absolute;
+            left: 435px;
+            top: 0px;
+        }
+        #nav_global {
+            height: 50px;
+        }
+        #nav_global a {
+            color: #afafaf;
+        }
+        #nav_global_left {
+            float: left;
+        }
+        #nav_global_right {
+            float: right;
+        }
+        .nav_global_item {
+            text-align: center;
+            float: left;
+            width: 100px;
+            height: 50px;
+        }
+        #nav_local {
+            height: 50px;
+        }
+        #nav_local_left {
+            float: left;
+        }
+        #nav_local_right {
+            float: right;
+        }
+        .nav_local_item {
+            float: left;
+            width: 145px;
+            height: 50px;
+        }
+        .nav_local_item:hover {
+            background-color: #bbddff;
+        }
+        .nav_local_item {
+            text-align: center;
+            line-height: 50px;
+        }
+
+        /*메인*/
+        /* 메인 1 */
+        #main1 {
+            width: 1000px;
+            height: 562px;
+            margin: 0px auto;
+        }
+        #main1_background {
+            height: 562px;
+            background-color: black;
+        }
+        #main1 input {
+            display:none;
+        }
+        #main1 #main_slide {
+            max-width:1000px;margin:0 auto;
+        }
+        #main1 #main_slide_list {
+            white-space:nowrap;
+            font-size:0;
+            overflow:hidden;
+            position:relative;
+        }
+        #main1 #main_slide_list > li {
+            display:inline-block;
+            vertical-align:middle;
+            width:100%;
+            transition:all .5s;
+        }
+        #main1 #main_slide_list > li > a {
+            display:block;
+            position:relative;
+        }
+        #main1 #main_slide_list > li > a img {
+            width:100%;
+        }
+        #main1 #main_slide_list label {
+            position:absolute;
+            z-index:10;
+            top:50%;
+            transform:translateY(-50%);
+            padding:50px;
+            cursor:pointer;
+        }
+        #main1 #main_slide_list .textbox {
+            position:absolute;
+            z-index:1;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            line-height:1.6;
+            text-align:center;
+        }
+        #main1 #main_slide_list .textbox h3 {
+            font-size:36px;
+            color:white;
+            transform:translateY(30px);
+            transition:all .5s;
+            font-weight: bold;
+        }
+        #main1 #main_slide_list .textbox p {
+            font-size:24px;
+            color:white;
+            opacity:0;
+            transform:translateY(30px);
+            transition:all .5s;
+            font-weight: bold;
+        }
+        #main1 input[id="slide01"]:checked ~ #main_slide #main_slide_list > li {
+            transform:translateX(0%);
+        }
+        #main1 input[id="slide02"]:checked ~ #main_slide #main_slide_list > li {
+            transform:translateX(-100%);
+        }
+        #main1 input[id="slide03"]:checked ~ #main_slide #main_slide_list > li {
+            transform:translateX(-200%);
+        }
+    
+        #main1 input[id="slide01"]:checked ~ #main_slide li:nth-child(1) .textbox h3 {
+            opacity:1;
+            transform:translateY(0);
+            transition-delay:.2s;
+        }
+        #main1 input[id="slide01"]:checked ~ #main_slide li:nth-child(1) .textbox p {
+            opacity:1;
+            transform:translateY(0);
+            transition-delay:.4s;
+        }
+        #main1 input[id="slide02"]:checked ~ #main_slide li:nth-child(2) .textbox h3 {
+            opacity:1;
+            transform:translateY(0);
+            transition-delay:.2s;
+        }
+        #main1 input[id="slide02"]:checked ~ #main_slide li:nth-child(2) .textbox p {
+            opacity:1;
+            transform:translateY(0);
+            transition-delay:.4s;
+        }
+        #main1 input[id="slide03"]:checked ~ #main_slide li:nth-child(3) .textbox h3 {
+            opacity:1;
+            transform:translateY(0);
+            transition-delay:.2s;
+        }
+        #main1 input[id="slide03"]:checked ~ #main_slide li:nth-child(3) .textbox p {
+            opacity:1;
+            transform:translateY(0);
+            transition-delay:.4s;
+        }
+        .slide-control > div {
+            display:none;
+        }
+        #main1 .left {
+            left:30px;
+            background:url('directory/mainpage/left.png') center center / 100% no-repeat;
+        }
+        #main1 .right {
+            right:30px;
+            background:url('directory/mainpage/right.png') center center / 100% no-repeat;
+        }
+        #main1 input[id="slide01"]:checked ~ #main_slide .slide-control > div:nth-child(1) {
+            display:block;
+        }
+        #main1 input[id="slide02"]:checked ~ #main_slide .slide-control > div:nth-child(2) {
+            display:block;
+        }
+        #main1 input[id="slide03"]:checked ~ #main_slide .slide-control > div:nth-child(3) {
+            display:block;
+        }
+
+        /* 메인 2 */
+        #main2 {
+            width: 1000px;
+            height: 700px;
+            margin: 0px auto;
+        }
+        #main2_background {
+            background-color: #efefef;
+        }
+        #main_boxoffice {
+            height: 100px;
+            line-height: 150px;
+            overflow: hidden;
+        }
+        #main_boxoffice h1 {
+            display: inline;
+        }
+        #main_boxoffice a {
+            display: inline;
+            text-align: right;
+            float: right;
+            color: #afafaf;
+        }
+        #main_movie_list {
+            width: 1000px;
+            height: 330px;
+            margin: 16px 0px 0px 0px;
+        }
+        .main_movie {
+            width: 210px;
+            height: 330px;
+            margin: 0px 20px 0px 20px;
+            float: left;
+        }
+        .main_movie_picture {
+            width: 210px;
+            height: 280px;
+            border-radius: 5px;
+        }
+        .main_reserve {
+            width: 210px;
+            height: 40px;
+            margin: 10px 0px 0px 0px;
+            background-color: #bfdfff;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .main_reserve_text {
+            line-height: 40px;
+            top: 8px;
+        }
+        #main_quick {
+            margin: 80px 0px 0px 0px;
+            width: 1000px;
+            height: 80px;
+            border-radius: 5px;
+            background-color: rgba(191, 223, 255, 75%);
+        }
+        #main_quick > div {
+            border-left: 4px solid white;
+        }
+        .main_quickmenu {
+            width: 247px;
+            height: 40px;
+            float:left;
+            text-align: center;
+            position: relative;
+            top: 20px;
+        }
+        #search {
+            width: 160px;
+            height: 36px;
+            border: none;
+            border-bottom: 4px solid white;
+            color: black;
+            background-color: rgba(00, 00, 00, 10%);
+        }
+        .main_quickmenu span {
+            position: relative;
+            top: 8px;
+        }
+        
+        /* 메인 3 */
+        #main3 {
+            width: 1000px;
+            height: 610px;
+            margin: 0px auto;
+        }
+        #main3_background {
+            background-color: white;
+        }
+        #main_event {
+            height: 100px;
+            line-height: 150px;
+            overflow: hidden;
+        }
+        #main_event h1 {
+            display: inline;
+        }
+        #main_event a {
+            display: inline;
+            text-align: right;
+            float: right;
+            color: #afafaf;
+        }
+        #main_eventall {
+            height: 450px;
+            margin: 25px 0px 0px 0px;
+        }
+        #main_event1 {
+            width: 600px;
+            height: 450px;
+            float: left;
+            margin: 0px 0px 0px 25px;
+        }
+        #main_event1-1 {
+            width: 600px;
+            height: 200px;
+        }
+        #main_event1-2 {
+            width: 600px;
+            height: 200px;
+            margin: 50px 0px 0px 0px;
+        }
+        #main_event2 {
+            float: right;
+            margin: 0px 25px 0px 0px;
+        }
+        .main_event_item {
+            float: left;
+        }
+        .main_event_item_right {
+            float: right;
+        }
+        #main3 img {
+            border-radius: 10px;
+        }
+        #main3 {
+            width: 1000px;
+            height: 650px;
+            margin: 0px auto;
+        }
+        #main3_background {
+            background-color: white;
+        }
+        #main_slide {
+            width: 1000px;
+            margin: 0px auto;
+        }
+    
+    /*푸터*/
+        footer {
+            font-size: 10px;
+            width: 1000px;
+            height: 200px;
+            margin: 0px auto;
+        }
+        #footer_background {
+            background-color: #efefef;
+        }
+        #footer_logo_location1 {
+            float:left;
+        }
+        #footer_logo {
+            width: 190px;
+            height: 190px;
+        }
+        #footer_nav {
+            margin: 25px;
+            float: left;
+        }
+        .footer_item {
+            display: inline;
+        }
+        #footer_link_ul {
+            float: right;
+            margin: 10px 25px 0px 0px;
+        }
+        .footer_link_item {
+            display: inline;
+        }
+        .footer_link {
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+        #footer_navlink {
+            overflow: hidden;
+        }
+        #footer_adress {
+            float: left;
+            margin: 0px 0px 0px 25px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="header_background">
+        <header>
+            <a href="mainpage.HTM"><img src="directory/mainpage/logo.png" id="header_logo"></a>
+            <nav id="nav_global" class="header_nav">
+                <ul id="nav_global_left">
+                    <li class="nav_global_item"><a href="#">VIP LOUNGE</a></li>
+                    <li class="nav_global_item"><a href="#">멤버십</a></li>
+                    <li class="nav_global_item"><a href="#">고객센터</a></li>
+                </ul>
+                <ul id="nav_global_right">
+                    <li class="nav_global_item"><a href="#">로그인</a></li>
+                    <li class="nav_global_item"><a href="#">회원가입</a></li>
+                    <li class="nav_global_item"><a href="#">빠른예매</a></li>
+                </ul>
+            </nav>
+            <nav id="nav_local" class="header_nav">
+                <ul id="nav_local_left">
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">영화</a></li>
+                    <li class="nav_local_item"><a href="subpage1.HTM" class="nav_local_text">예매</a></li>
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">극장</a></li>
+                </ul>
+                <ul id="nav_local_right">
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">이벤트</a></li>
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">스토어</a></li>
+                    <li class="nav_local_item"><a href="#" class="nav_local_text">혜택</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <main>
+        <div id="main1_background">
+            <section id="main1">
+                <input type="radio" name="slide" id="slide01" checked>
+	            <input type="radio" name="slide" id="slide02">
+	            <input type="radio" name="slide" id="slide03">
+                <div id="main_slide">
+                    <ul id="main_slide_list">
+                        <li class="slideitem">
+                            <a href="#">
+                                <div class="textbox">
+                                    <h3>▶</h3>
+                                    <p>예고편 보기</p>
+                                </div>
+                                <img src="directory/mainpage/slideimage11.png">
+                            </a>
+                        </li>
+                        <li class="slideitem">
+                            <a href="#">
+                                <div class="textbox">
+                                    <h3>▶</h3>
+                                    <p>예고편 보기</p>
+                                </div>
+                                <img src="directory/mainpage/slideimage22.png">
+                            </a>
+                        </li>
+                        <li class="slideitem">
+                            <a href="#">
+                                <div class="textbox">
+                                    <h3>▶</h3>
+                                    <p>예고편 보기</p>
+                                </div>
+                                <img src="directory/mainpage/slideimage33.png">
+                            </a>
+                        </li class="slideitem">
+                        <div class="slide-control">
+                            <div>
+                                <label for="slide03" class="left"></label>
+                                <label for="slide02" class="right"></label>
+                            </div>
+                            <div>
+                                <label for="slide01" class="left"></label>
+                                <label for="slide03" class="right"></label>
+                            </div>
+                            <div>
+                                <label for="slide02" class="left"></label>
+                                <label for="slide01" class="right"></label>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div id="main2_background">
+            <section id="main2">
+                    <div id="main_boxoffice"><h1>박스오피스</h1><a href="#">더보기&gt;</a></div>
+                    <hr>
+                <article id="main_movie_list">
+                    <article class="main_movie">
+                        <img src="directory/mainpage/witch.jpg" class="main_movie_picture">
+                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                    </article>
+                    <article class="main_movie">
+                        <img src="directory/mainpage/doctor.jpg" class="main_movie_picture">
+                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                    </article>
+                    <article class="main_movie">
+                        <img src="directory/mainpage/city.jpg" class="main_movie_picture">
+                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                    </article>
+                    <article class="main_movie">
+                        <img src="directory/mainpage/broker.jpg" class="main_movie_picture">
+                        <a href="#"><div class="main_reserve"><span class="main_reserve_text">예매하러가기</span></div></a>
+                    </article>
+                </article>
+                <article id="main_quick">
+                    <form class="main_quickmenu">
+                        <input type="text" name="moviename" value="제목으로 찾기" id="search">
+                    </form>
+                    <div class="main_quickmenu">
+                        <a href="#"><span>상영시간표</span></a>
+                    </div>
+                    <div class="main_quickmenu">
+                        <a href="#"><span>박스오피스</span></a>
+                    </div>
+                    <div class="main_quickmenu">
+                        <a href="#"><span>빠른예매</span></a>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <div id="main3_background">
+            <section id="main3">
+                <div id="main_event"><h1>이벤트</h1><a href="#">더보기&gt;</a></div>
+                <hr>
+                <article id="main_eventall">
+                    <div id="main_event1">
+                        <div id="main_event1-1">
+                            <div class="main_event_item">
+                                <a href="#"><img src="directory/mainpage/event6.jpg" width="600" height="200"></a>
+                            </div>
+                        </div>
+                        <div id="main_event1-2">
+                            <div class="main_event_item">
+                                <a href="#"><img src="directory/mainpage/event4.jpg" width="350" height="200"></a>
+                            </div>
+                            <div class="main_event_item_right">
+                                <a href="#"><img src="directory/mainpage/event3.jpg" width="200" height="200"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="main_event2">
+                        <div class="main_event_item">
+                            <a href="#"><img src="directory/mainpage/event1.jpg" width="300" height="450"></a>
+                        </div>
+                    </div>
+            </article>
+            </section>
+        </div>
+    </main>
+    <div id="footer_background">
+        <footer>
+            <div id="footer_logo_location1">
+                <img src="directory/mainpage/footerlogo.png" id="footer_logo">
+            </div>
+            <div id="footer_logo_location2">
+                <div id="footer_navlink">
+                    <ul id="footer_nav">
+                        <li class="footer_item"><a href="#">회사소개</a></li>
+                        <li class="footer_item"><a href="#">인재채용</a></li>
+                        <li class="footer_item"><a href="#">사회공헌</a></li>
+                        <li class="footer_item"><a href="#">제휴/광고</a></li>
+                        <li class="footer_item"><a href="#">이용약관</a></li>
+                        <li class="footer_item"><a href="#">윤리경영</a></li>
+                    </ul>
+                    <ul id="footer_link_ul">
+                        <li class="footer_link_item"><a href="#"><img src="directory/mainpage/insta.png" class="footer_link"></a></li>
+                        <li class="footer_link_item"><a href="#"><img src="directory/mainpage/youtube.png"class="footer_link"></a></li>
+                        <li class="footer_link_item"><a href="#"><img src="directory/mainpage/facebook.png"class="footer_link"></a></li>
+                    </ul>
+                </div>
+                <p id="footer_adress">
+                    주소 : 62399 광주광역시 광산구 호남대길 120 호남대학교
+                    <br>대표자명 하늘 · 개인정보보호책임자 임창경 사업자등록번호 000-00-00000
+                    <br>통신판매업신고번호 제 0000-광주선운-0000 호
+                    <br>COPYRIGHT © HonamUniversity, Inc. All rights reserved
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
