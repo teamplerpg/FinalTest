@@ -93,10 +93,30 @@ timeArea.innerHTML = "";
 
 for (const movie of movies) {
     nameArea.innerHTML += `
-    <label class="movie" for="${movie.id}">
-        <div class="grade_15up">${movie.ages}</div>
-        <p>${movie.title}</p>
+    <input type="radio" name="movie" id="${movie.id}">
+    <label class="movie" for="${movie.id}">`;
+    
+    // 12, 15, all, 19
+    switch (movie.ages) {
+        default:
+        case 0:
+            nameArea.innerHTML += `<div class="grade_all">A</div>`;
+            break;
+
+        case 12:
+            nameArea.innerHTML += `<div class="grade_12up">${movie.ages}</div>`;
+            break;
+
+        case 15:
+            nameArea.innerHTML += `<div class="grade_15up">${movie.ages}</div>`;
+            break;
+
+        case 19:
+            nameArea.innerHTML += `<div class="grade_adult">${movie.ages}</div>`;
+            break;
+    }
+
+    nameArea.innerHTML += `<p>${movie.title}</p>
         <img src="images/check.png" class="check" width="35px" height="35px">
-    </label>
-    `;
+    </label>`;
 }
