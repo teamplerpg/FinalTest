@@ -105,7 +105,7 @@ function onChangeMovie(event) {
 }
 
 function onChangeSeat(event) {
-    // 유저가 선택한 영화
+    // 유저가 선택한 영화 - 시간
     const movie = movies.find((movie) => movie.title === event.target.value);
 
     seatArea.innerHTML = "test";
