@@ -115,26 +115,27 @@ function onChangeSeat(event) {
 }
 
 for (const movie of movies) {
-    nameArea.innerHTML += `
-    <input type="radio" name="movie" id="${movie.id}" value="${movie.title}" onclick="onChangeMovie(event)">
+    let html = "";
+    html += `
+    <input type="radio" name="movie" id="movie${movie.id}" value="${movie.title}" onclick="onChangeMovie(event)">
     <label class="movie" for="movie${movie.id}">`;
     
     switch (movie.ages) {
         default:
         case 0:
-            nameArea.innerHTML += `<div class="grade_all">A</div>`;
+            html += `<div class="grade_all">A</div>`;
             break;
 
         case 12:
-            nameArea.innerHTML += `<div class="grade_12up">${movie.ages}</div>`;
+            html += `<div class="grade_12up">${movie.ages}</div>`;
             break;
 
         case 15:
-            nameArea.innerHTML += `<div class="grade_15up">${movie.ages}</div>`;
+            html += `<div class="grade_15up">${movie.ages}</div>`;
             break;
 
         case 19:
-            nameArea.innerHTML += `<div class="grade_adult">${movie.ages}</div>`;
+            html += `<div class="grade_adult">${movie.ages}</div>`;
             break;
     }
 
@@ -143,5 +144,7 @@ for (const movie of movies) {
         title = movie.title.substr(0, 10) + '...';
     }
 
-    nameArea.innerHTML += `<p>${title}</p><img src="images/check.png" class="check" width="35px" height="35px"></label>`;
+    html += `<p>${title}</p><img src="images/check.png" class="check" width="35px" height="35px"></label>`;
+
+    nameArea.innerHTML += html;
 }
