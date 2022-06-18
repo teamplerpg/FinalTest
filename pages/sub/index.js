@@ -97,24 +97,27 @@ function onChangeMovie(event) {
     const movie = movies.find((movie) => movie.title === event.target.value);
 
     timeArea.innerHTML = '';
+    let index = 0;
     for (const time of movie.startTimes) {
         timeArea.innerHTML += `
-        <input type="radio" name="time" value="${movie.title}" onclick="onChangeSeat(event)">
+        <input type="radio" name="time" value="${movie.title}/${index++}" onclick="onChangeSeat(event)">
         <label class="watch">${time}</label>`;
     }
+
+    seatArea.innerHTML = "";
 }
 
 function onChangeSeat(event) {
     // 유저가 선택한 영화 - 시간
-    const movie = movies.find((movie) => movie.title === event.target.value);
+    const movie = movies.find((movie) => movie.title === event.target.value.split('/')[0]);
 
-    seatArea.innerHTML = "test";
+    seatArea.innerHTML = movie.title + ' ' + event.target.value.split('/')[1];
 }
 
 for (const movie of movies) {
     nameArea.innerHTML += `
     <input type="radio" name="movie" id="${movie.id}" value="${movie.title}" onclick="onChangeMovie(event)">
-    <label class="movie" for="movie{movie.id}">`;
+    <label class="movie" for="movie${movie.id}">`;
     
     switch (movie.ages) {
         default:
