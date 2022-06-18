@@ -152,15 +152,16 @@ main {
     border-right: 5px solid #9f9f9f;
     background-color: #dfdfdf;
 }
-#choose_movie input {
+ #choose_movie input {
     display: none;
 }
 .movie {
     display: block;
-    width: 185px;
+    width: 183px;
     height: 50px;
     background-color: #dfdfdf;
     text-overflow: ellipsis;
+    border: 1px solid red;
 }
 #choose_movie > input[id="movie1"]:checked ~ .movie:nth-of-type(1){
     background-color: #efefef;
@@ -272,6 +273,7 @@ main {
     float: left;
     width: 108px;
     height: 48px;
+    border: 1px solid blue;
     font-size: 10pt;
     text-overflow: ellipsis;
     white-space: nowrap;

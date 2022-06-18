@@ -84,19 +84,38 @@ const movies = [
         ]
     }
 ];
-
 const nameArea = document.getElementById('nameArea');
 const timeArea = document.getElementById('timeArea');
+const seatArea = document.getElementById('seatArea');
 
 nameArea.innerHTML = "";
 timeArea.innerHTML = "";
+seatArea.innerHTML = "";
+
+function onChangeMovie(event) {
+    // 유저가 선택한 영화
+    const movie = movies.find((movie) => movie.title === event.target.value);
+
+    timeArea.innerHTML = '';
+    for (const time of movie.startTimes) {
+        timeArea.innerHTML += `
+        <input type="radio" name="time" value="${movie.title}" onclick="onChangeSeat(event)">
+        <label class="watch">${time}</label>`;
+    }
+}
+
+function onChangeSeat(event) {
+    // 유저가 선택한 영화
+    const movie = movies.find((movie) => movie.title === event.target.value);
+
+    seatArea.innerHTML = "test";
+}
 
 for (const movie of movies) {
     nameArea.innerHTML += `
-    <input type="radio" name="movie" id="${movie.id}">
-    <label class="movie" for="${movie.id}">`;
+    <input type="radio" name="movie" id="${movie.id}" value="${movie.title}" onclick="onChangeMovie(event)">
+    <label class="movie" for="movie{movie.id}">`;
     
-    // 12, 15, all, 19
     switch (movie.ages) {
         default:
         case 0:
@@ -116,7 +135,10 @@ for (const movie of movies) {
             break;
     }
 
-    nameArea.innerHTML += `<p>${movie.title}</p>
-        <img src="images/check.png" class="check" width="35px" height="35px">
-    </label>`;
+    let title = movie.title;
+    if (movie.title.length > 10) {
+        title = movie.title.substr(0, 10) + '...';
+    }
+
+    nameArea.innerHTML += `<p>${title}</p><img src="images/check.png" class="check" width="35px" height="35px"></label>`;
 }
